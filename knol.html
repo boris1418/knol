@@ -33,6 +33,7 @@
         </tr>
     </table>
 </div>
+<div>Счет: <span class="wins">0:0</span></div>
 <div>
     <button class="start_game">Начать игру</button>
 </div>
@@ -45,7 +46,7 @@
         constructor()
         {
             this.player1 = this.player2 = this.currentStep = 1;
-            this.$steps = 0;
+            this.$steps = this.wins1 = this.wins2 = 0;
             this.sets = ['-','-','-','-','-','-','-','-','-'];
             this.end = false;
             this.wins = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[2,4,6],[3,4,5]];
@@ -58,8 +59,8 @@
                 if(this.sets[this.wins[i][0]]==this.sets[this.wins[i][1]]&&this.sets[this.wins[i][0]]==this.sets[this.wins[i][2]]&&this.sets[this.wins[i][0]]!='-'&&this.sets[this.wins[i][1]]!='-'&&this.sets[this.wins[i][2]]!='-')
                 {
                     this.end = true;
-                    if (this.sets[this.wins[i][0]] == 'X') {$('.result').text('Выиграл 1 игрок. Начните новую игру.');}
-                    else if (this.sets[this.wins[i][0]] == 'O') {$('.result').text('Выиграл 2 игрок. Начните новую игру.');}
+                    if (this.sets[this.wins[i][0]] == 'X') {$('.result').text('Выиграл 1 игрок. Начните новую игру.');this.wins1++;$('.wins').text(this.wins1+':'+this.wins2)}
+                    else if (this.sets[this.wins[i][0]] == 'O') {$('.result').text('Выиграл 2 игрок. Начните новую игру.');this.wins2++;$('.wins').text(this.wins1+':'+this.wins2)}
                     //else $('.result').text('Ничья. Начните новую игру.');
                 }
                 if (this.end) break;
