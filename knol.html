@@ -1,0 +1,41 @@
+<html>
+<script src="jquery.js"></script>
+<header>
+    <script src="jquery.js"></script>
+</header>
+<body>
+<style>
+    .field{width:150px;height:150px;border:1px solid black}
+    .block .field{float:left;text-align: center;font-size: 130px; vertical-align: middle}
+    .block{width:100%;display:block;float: left;}
+</style>
+<div class="block">
+    <span class="field field1" data-number="0"></span>
+    <span class="field field2" data-number="1"></span>
+    <span class="field field3" data-number="2"></span>
+</div>
+<div class="block">
+    <span class="field field4" data-number="3"></span>
+    <span class="field field5" data-number="4"></span>
+    <span class="field field6" data-number="5"></span>
+</div>
+<div class="block">
+    <span class="field field7" data-number="6"></span>
+    <span class="field field8" data-number="7"></span>
+    <span class="field field9" data-number="8"></span>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <td><input type="radio" name="player_1" checked> Игрок 1 (X)</td>
+            <td><input type="radio" name="player_2" checked> Игрок 2 (O)</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <button class="start_game">Начать игру</button>
+</div>
+
+</body>
+</html>
