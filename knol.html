@@ -36,6 +36,45 @@
 <div>
     <button class="start_game">Начать игру</button>
 </div>
+<div class="who">Сейчас ходит: Игрок <span>1</span> </div>
+<script>
+
+    class game
+    {
+        constructor()
+        {
+            this.player1 = this.player2 = this.currentStep = 1;
+            this.$steps = 0;
+            this.sets = ['-','-','-','-','-','-','-','-','-'];
+            this.end = false;
+            this.wins = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[2,4,6],[3,4,5]];
+        }
+
+        startGame()
+        {
+            $('.field').text('');
+            this.sets = ['-','-','-','-','-','-','-','-','-'];
+            this.end = false;
+            $('.who span').text('1');
+            this.currentStep=1;
+            $('.result').text('');
+            this.$steps=0;
+        }
+
+        click(obj)
+        {
+            var text = $(obj).text();
+            if (text != '' || this.end) return;
+            var i = $(obj).attr('data-number');
+
+            if (this.currentStep == 1){$(obj).text('X');this.currentStep=2; this.sets[i] = 'X';$('.who span').text('2')}
+            else{$(obj).text('O');this.currentStep=1; this.sets[i] = 'O';$('.who span').text('1')};
+            this.$steps++;
+            this.checkEnd();
+        }
+    }
+
+</script>
 
 </body>
 </html>
